@@ -29,7 +29,11 @@ if not DATABASE_URL:
 # DATABASE
 # ==========================================
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,
+    pool_recycle=300
+)
 
 
 # ==========================================
